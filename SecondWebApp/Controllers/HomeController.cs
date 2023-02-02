@@ -24,6 +24,7 @@ namespace SecondWebApp.Controllers
             var skill = _context.Skills.OrderByDescending(x => x.Id).ToList();
             var portfolio = _context.Portfolios.OrderByDescending(x => x.Id).ToList();
             var tesimonial = _context.Tesimonials.OrderByDescending(x => x.Id).ToList();
+            var blogs = _context.Blogs.OrderByDescending(x=>x.Like).ToList();
             HomeVM homeVM = new()
             {
                 About = about,
@@ -32,7 +33,8 @@ namespace SecondWebApp.Controllers
                 Services = services,
                 Skills = skill,
                 Portfolios = portfolio,
-                Tesimonials = tesimonial
+                Tesimonials = tesimonial,
+                Blogs = blogs 
             };
 
             return View(homeVM);

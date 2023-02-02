@@ -14,6 +14,7 @@ namespace SecondWebApp.Data
         public DbSet<Service> Services { get; set; }
         public DbSet<Skill> Skills { get; set; }
         public DbSet<Tesimonial> Tesimonials { get; set; }
+        public DbSet<Blog> Blogs {get; set;}
 
     }
 }

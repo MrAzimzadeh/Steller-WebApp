@@ -28,11 +28,12 @@
     <!-- Header-widget -->
     <div class="widget">
         @foreach (var item in Model.ClientCounts)
+
         {
-            <div class="widget-item">
-                <h2>@item.Count</h2>
-                <p>@item.Title</p>
-            </div>
+                <div class="widget-item">
+                    <h2>@item.Count</h2>
+                    <p>@item.Title</p>
+                </div>
         }
     </div>
 </header>
@@ -67,14 +68,14 @@
         <div class="row">
             @foreach (var service in Model.Services.Take(4))
             {
-                <div class="col-sm-6 col-md-3 mb-4">
-                    <div class="custom-card card border">
-                        <div class="card-body">
-                            <i class="@service.Icon"></i>
-                            <h5>@service.Title</h5>
+                    <div class="col-sm-6 col-md-3 mb-4">
+                        <div class="custom-card card border">
+                            <div class="card-body">
+                                <i class="@service.Icon"></i>
+                                <h5>@service.Title</h5>
+                            </div>
                         </div>
                     </div>
-                </div>
             }
 
         </div>
@@ -91,12 +92,12 @@
         <div class="row text-left">
             @foreach (var skill in Model.Skills)
             {
-                <div class="col-sm-6">
-                    <h6 class="mb-3">@skill.Name</h6>
-                    <div class="progress">
-                        <div class="progress-bar bg-primary" role="progressbar" style="width: @skill.SkillPerecent%;" aria-valuenow="@skill.SkillPerecent%" aria-valuemin="0" aria-valuemax="100"><span>@skill.SkillPerecent%</span></div>
+                    <div class="col-sm-6">
+                        <h6 class="mb-3">@skill.Name</h6>
+                        <div class="progress">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: @skill.SkillPerecent%;" aria-valuenow="@skill.SkillPerecent%" aria-valuemin="0" aria-valuemax="100"><span>@skill.SkillPerecent%</span></div>
+                        </div>
                     </div>
-                </div>
             }
 
         </div>
@@ -194,25 +195,27 @@
             <ol class="carousel-indicators">
 
                 @for (int i = 0; i < Model.Tesimonials.Count; i++)
+
                 {
-                    <li data-target="#carouselExampleIndicators" data-slide-to="@Model.Tesimonials[i]" class="@(i ==0 ? " active" : "" )"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="@Model.Tesimonials[i]" class="@(i ==0 ? " active" : "" )"></li>
                 }
             </ol>
             <div class="carousel-inner">
 
 
                 @for (int i = 0; i < Model.Tesimonials.Count; i++)
+
                 {
-                    <div class="carousel-item @(i ==0 ? " active" : "" )">
-                        <div class="card testmonial-card border">
-                            <div class="card-body">
-                                <img src="@Model.Tesimonials[i].PhotoUrl" alt="">
-                                <p> @Model.Tesimonials[i].Name </p>
-                                <h1 class="title">@Model.Tesimonials[i].Content</h1>
-                                <h1 class="subtitle">@Model.Tesimonials[i].Profession</h1>
+                        <div class="carousel-item @(i ==0 ? " active" : "" )">
+                            <div class="card testmonial-card border">
+                                <div class="card-body">
+                                    <img src="@Model.Tesimonials[i].PhotoUrl" alt="">
+                                    <p> @Model.Tesimonials[i].Name </p>
+                                    <h1 class="title">@Model.Tesimonials[i].Content</h1>
+                                    <h1 class="subtitle">@Model.Tesimonials[i].Profession</h1>
+                                </div>
                             </div>
                         </div>
-                    </div>
                 }
             </div>
         </div>
@@ -227,52 +230,25 @@
         <p class="mb-5 pb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. In alias dignissimos. <br> rerum commodi corrupti, temporibus non quam.</p>
 
         <div class="row text-left">
-            <div class="col-md-4">
-                <div class="card border mb-4">
-                    <img src="~/assets/imgs/blog-1.jpg" alt="" class="card-img-top w-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Designe for Everyone</h5>
-                        <div class="post-details">
-                            <a href="javascript:void(0)">Posted By: Admin</a>
-                            <a href="javascript:void(0)"><i class="ti-thumb-up"></i> 456</a>
-                            <a href="javascript:void(0)"><i class="ti-comment"></i> 123</a>
+            @foreach (var blog in Model.Blogs.Take(3))
+
+            {
+                <div class="col-md-4">
+                    <div class="card border mb-4">
+                        <img src="@blog.PhotoUrl" alt="" class="card-img-top w-100">
+                        <div class="card-body">
+                            <h5 class="card-title"> @blog.Title </h5>
+                                <div class="post-details">
+                                <a href="javascript:void(0)">Posted By: @blog.PublishUser</a>
+                                <a href="javascript:void(0)"><i class="ti-thumb-up"></i> @blog.Like </a>
+                                <a href="javascript:void(0)"><i class="ti-comment"></i> @blog.Comments</a>
+                            </div>
+                            <p>@blog.Desciption</p>
+                            <a href="javascript:void(0)">Read More..</a>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut ad vel dolorum, iusto velit, minima? Voluptas nemo harum impedit nisi.</p>
-                        <a href="javascript:void(0)">Read More..</a>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card border mb-4">
-                    <img src="~/assets/imgs/blog-2.jpg" alt="" class="card-img-top w-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Web Layouts</h5>
-                        <div class="post-details">
-                            <a href="javascript:void(0)">Posted By: Admin</a>
-                            <a href="javascript:void(0)"><i class="ti-thumb-up"></i> 456</a>
-                            <a href="javascript:void(0)"><i class="ti-comment"></i> 123</a>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut ad vel dolorum, iusto velit, minima? Voluptas nemo harum impedit nisi.</p>
-                        <a href="javascript:void(0)">Read More..</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card border mb-4">
-                    <img src="~/assets/imgs/blog-3.jpg" alt="" class="card-img-top w-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Bootstrap Framework</h5>
-                        <div class="post-details">
-                            <a href="javascript:void(0)">Posted By: Admin</a>
-                            <a href="javascript:void(0)"><i class="ti-thumb-up"></i> 456</a>
-                            <a href="javascript:void(0)"><i class="ti-comment"></i> 123</a>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut ad vel dolorum, iusto velit, minima? Voluptas nemo harum impedit nisi.</p>
-                        <a href="javascript:void(0)">Read More..</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+            }
     </div>
 </section>
 

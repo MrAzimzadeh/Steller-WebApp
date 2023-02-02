@@ -11,5 +11,6 @@ namespace SecondWebApp.ViewModels
         public List<Skill> Skills { get; set; }
         public List<Portfolio> Portfolios { get; set; }
         public List<Tesimonial> Tesimonials { get; set; }
+        public List<Blog> Blogs { get; set; }
     }
 }
