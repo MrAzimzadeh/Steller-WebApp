@@ -22,15 +22,17 @@ namespace SecondWebApp.Controllers
             var clientCounts = _context.ClientCounts.ToList();
             var services = _context.Services.OrderByDescending(x => x.Id).ToList();
             var skill = _context.Skills.OrderByDescending(x => x.Id).ToList();
-
+            var portfolio = _context.Portfolios.OrderByDescending(x => x.Id).ToList();
+            var tesimonial = _context.Tesimonials.OrderByDescending(x => x.Id).ToList();
             HomeVM homeVM = new()
             {
                 About = about,
                 Banner = banner,
                 ClientCounts = clientCounts,
                 Services = services,
-                Skills= skill,
-
+                Skills = skill,
+                Portfolios = portfolio,
+                Tesimonials = tesimonial
             };
 
             return View(homeVM);

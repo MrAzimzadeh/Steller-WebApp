@@ -9,5 +9,7 @@ namespace SecondWebApp.ViewModels
         public List<ClientCount> ClientCounts { get; set; }
         public List<Service> Services { get; set; }
         public List<Skill> Skills { get; set; }
+        public List<Portfolio> Portfolios { get; set; }
+        public List<Tesimonial> Tesimonials { get; set; }
     }
 }

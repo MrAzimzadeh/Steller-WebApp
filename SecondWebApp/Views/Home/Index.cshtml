@@ -89,30 +89,16 @@
         <p class="mb-5 pb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. In alias dignissimos. <br> rerum commodi corrupti, temporibus non quam.</p>
 
         <div class="row text-left">
-            <div class="col-sm-6">
-                <h6 class="mb-3">Photoshop</h6>
-                <div class="progress">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: 89%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span>89%</span></div>
+            @foreach (var skill in Model.Skills)
+            {
+                <div class="col-sm-6">
+                    <h6 class="mb-3">@skill.Name</h6>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: @skill.SkillPerecent%;" aria-valuenow="@skill.SkillPerecent%" aria-valuemin="0" aria-valuemax="100"><span>@skill.SkillPerecent%</span></div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-6">
-                <h6 class="mb-3">Web Design</h6>
-                <div class="progress">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: 83%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span>83%</span></div>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <h6 class="mb-3">App Design</h6>
-                <div class="progress">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: 95%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span>95%</span></div>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <h6 class="mb-3">SEO</h6>
-                <div class="progress">
-                    <div class="progress-bar bg-primary" role="progressbar" style="width: 90%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span>90%</span></div>
-                </div>
-            </div>
+            }
+
         </div>
     </div>
 </section>
@@ -206,41 +192,31 @@
 
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+
+                @for (int i = 0; i < Model.Tesimonials.Count; i++)
+                {
+                    <li data-target="#carouselExampleIndicators" data-slide-to="@Model.Tesimonials[i]" class="@(i ==0 ? " active" : "" )"></li>
+                }
             </ol>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="card testmonial-card border">
-                        <div class="card-body">
-                            <img src="~/assets/imgs/avatar-1.jpg" alt="">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam nostrum voluptates in enim vel amet?</p>
-                            <h1 class="title">Emma Re</h1>
-                            <h1 class="subtitle">Graphic Designer</h1>
+
+
+                @for (int i = 0; i < Model.Tesimonials.Count; i++)
+                {
+                    <div class="carousel-item @(i ==0 ? " active" : "" )">
+                        <div class="card testmonial-card border">
+                            <div class="card-body">
+                                <img src="@Model.Tesimonials[i].PhotoUrl" alt="">
+                                <p> @Model.Tesimonials[i].Name </p>
+                                <h1 class="title">@Model.Tesimonials[i].Content</h1>
+                                <h1 class="subtitle">@Model.Tesimonials[i].Profession</h1>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="card testmonial-card border">
-                        <div class="card-body">
-                            <img src="~/assets/imgs/avatar-2.jpg" alt="">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam nostrum voluptates in enim vel amet?</p>
-                            <h1 class="title">James Bert</h1>
-                            <h1 class="subtitle">Web Designer</h1>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="card testmonial-card border">
-                        <div class="card-body">
-                            <img src="~/assets/imgs/avatar-3.jpg" alt="">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam nostrum voluptates in enim vel amet?</p>
-                            <h1 class="title">Michael Abra</h1>
-                            <h1 class="subtitle">Web Developer</h1>
-                        </div>
-                    </div>
-                </div>
+                }
+
+
+
             </div>
         </div>
     </div>
