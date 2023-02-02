@@ -18,14 +18,19 @@ namespace SecondWebApp.Controllers
         public IActionResult Index()
         {
             var banner = _context.Banners.First();
-            var about = _context.Abouts.OrderByDescending(x=>x.Id).Last();
+            var about = _context.Abouts.OrderByDescending(x => x.Id).Last();
             var clientCounts = _context.ClientCounts.ToList();
+            var services = _context.Services.OrderByDescending(x => x.Id).ToList();
+            var skill = _context.Skills.OrderByDescending(x => x.Id).ToList();
 
             HomeVM homeVM = new()
             {
                 About = about,
                 Banner = banner,
                 ClientCounts = clientCounts,
+                Services = services,
+                Skills= skill,
+
             };
 
             return View(homeVM);
