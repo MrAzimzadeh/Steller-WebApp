@@ -39,6 +39,14 @@ namespace SecondWebApp.Controllers
 
             return View(homeVM);
         }
+        [HttpPost]
+        public IActionResult Index(Contact contact)
+        {
+            contact.UserPhone = "";     
+            _context.Contacts.Add(contact);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
 
         public IActionResult Privacy()
         {

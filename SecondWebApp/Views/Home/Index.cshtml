@@ -282,16 +282,18 @@
             <div class="form">
                 <h6 class="subtitle">Available 24/7</h6>
                 <h6 class="section-title mb-4">Get In Touch</h6>
-                <form>
+                <form id="contactForm" method="post" asp-controller="Home" asp-action="Index">
                     <div class="form-group">
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                        <input class="form-control" id="email" name="UserEmail" type="email" placeholder="Your Email *"
+                            data-sb-validations="required,email">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+                        <input type="text" class="form-control" id="name"  name="UserName" data-sb-validations="required" placeholder="ADını yaz" >
                     </div>
                     <div class="form-group">
-                        <textarea name="contact-message" id="" cols="30" rows="5" class="form-control" placeholder="Message"></textarea>
-                    </div>
+                          <textarea class="form-control" id="message" cols="30" rows="5" name="UserMessage" placeholder="Your Message *"
+                            data-sb-validations="required"></textarea>
+                    </div>  
                     <button type="submit" class="btn btn-primary btn-block rounded w-lg">Send Message</button>
                 </form>
             </div>
