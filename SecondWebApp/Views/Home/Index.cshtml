@@ -30,10 +30,10 @@
         @foreach (var item in Model.ClientCounts)
 
         {
-                <div class="widget-item">
-                    <h2>@item.Count</h2>
-                    <p>@item.Title</p>
-                </div>
+            <div class="widget-item">
+                <h2>@item.Count</h2>
+                <p>@item.Title</p>
+            </div>
         }
     </div>
 </header>
@@ -68,14 +68,14 @@
         <div class="row">
             @foreach (var service in Model.Services.Take(4))
             {
-                    <div class="col-sm-6 col-md-3 mb-4">
-                        <div class="custom-card card border">
-                            <div class="card-body">
-                                <i class="@service.Icon"></i>
-                                <h5>@service.Title</h5>
-                            </div>
+                <div class="col-sm-6 col-md-3 mb-4">
+                    <div class="custom-card card border">
+                        <div class="card-body">
+                            <i class="@service.Icon"></i>
+                            <h5>@service.Title</h5>
                         </div>
                     </div>
+                </div>
             }
 
         </div>
@@ -92,12 +92,12 @@
         <div class="row text-left">
             @foreach (var skill in Model.Skills)
             {
-                    <div class="col-sm-6">
-                        <h6 class="mb-3">@skill.Name</h6>
-                        <div class="progress">
-                            <div class="progress-bar bg-primary" role="progressbar" style="width: @skill.SkillPerecent%;" aria-valuenow="@skill.SkillPerecent%" aria-valuemin="0" aria-valuemax="100"><span>@skill.SkillPerecent%</span></div>
-                        </div>
+                <div class="col-sm-6">
+                    <h6 class="mb-3">@skill.Name</h6>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: @skill.SkillPerecent%;" aria-valuenow="@skill.SkillPerecent%" aria-valuemin="0" aria-valuemax="100"><span>@skill.SkillPerecent%</span></div>
                     </div>
+                </div>
             }
 
         </div>
@@ -195,27 +195,23 @@
             <ol class="carousel-indicators">
 
                 @for (int i = 0; i < Model.Tesimonials.Count; i++)
-
                 {
-                        <li data-target="#carouselExampleIndicators" data-slide-to="@Model.Tesimonials[i]" class="@(i ==0 ? " active" : "" )"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="@Model.Tesimonials[i]" class="@(i ==0 ? " active" : "" )"></li>
                 }
             </ol>
-            <div class="carousel-inner">
-
-
+            <div class="carousel-inner
                 @for (int i = 0; i < Model.Tesimonials.Count; i++)
-
                 {
-                        <div class="carousel-item @(i ==0 ? " active" : "" )">
-                            <div class="card testmonial-card border">
-                                <div class="card-body">
-                                    <img src="@Model.Tesimonials[i].PhotoUrl" alt="">
-                                    <p> @Model.Tesimonials[i].Name </p>
-                                    <h1 class="title">@Model.Tesimonials[i].Content</h1>
-                                    <h1 class="subtitle">@Model.Tesimonials[i].Profession</h1>
-                                </div>
+                    <div class="carousel-item @(i ==0 ? " active" : "" )">
+                        <div class="card testmonial-card border">
+                            <div class="card-body">
+                                <img src="@Model.Tesimonials[i].PhotoUrl" alt="">
+                                <p> @Model.Tesimonials[i].Name </p>
+                                <h1 class="title">@Model.Tesimonials[i].Content</h1>
+                                <h1 class="subtitle">@Model.Tesimonials[i].Profession</h1>
                             </div>
                         </div>
+                    </div>
                 }
             </div>
         </div>
@@ -238,7 +234,7 @@
                         <img src="@blog.PhotoUrl" alt="" class="card-img-top w-100">
                         <div class="card-body">
                             <h5 class="card-title"> @blog.Title </h5>
-                                <div class="post-details">
+                            <div class="post-details">
                                 <a href="javascript:void(0)">Posted By: @blog.PublishUser</a>
                                 <a href="javascript:void(0)"><i class="ti-thumb-up"></i> @blog.Like </a>
                                 <a href="javascript:void(0)"><i class="ti-comment"></i> @blog.Comments</a>
@@ -249,7 +245,7 @@
                     </div>
                 </div>
             }
-    </div>
+        </div>
 </section>
 
 <!-- Hire me section -->
@@ -285,15 +281,15 @@
                 <form id="contactForm" method="post" asp-controller="Home" asp-action="Index">
                     <div class="form-group">
                         <input class="form-control" id="email" name="UserEmail" type="email" placeholder="Your Email *"
-                            data-sb-validations="required,email">
+                               data-sb-validations="required,email">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="name"  name="UserName" data-sb-validations="required" placeholder="ADını yaz" >
+                        <input type="text" class="form-control" id="name" name="UserName" data-sb-validations="required" placeholder="ADını yaz">
                     </div>
                     <div class="form-group">
-                          <textarea class="form-control" id="message" cols="30" rows="5" name="UserMessage" placeholder="Your Message *"
-                            data-sb-validations="required"></textarea>
-                    </div>  
+                        <textarea class="form-control" id="message" cols="30" rows="5" name="UserMessage" placeholder="Your Message *"
+                                  data-sb-validations="required"></textarea>
+                    </div>
                     <button type="submit" class="btn btn-primary btn-block rounded w-lg">Send Message</button>
                 </form>
             </div>
